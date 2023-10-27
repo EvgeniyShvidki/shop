@@ -1,0 +1,3 @@
+node js - js in pc
+npm init - start new project
+npm i ...

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css" integrity="sha512-Z/def5z5u2aR89OuzYcxmDJ0Bnd5V1cKqBEbvLOiUNWdg9PQeXVvXLI90SE4QOHGlfLqUnDNVAYyZi8UwUTmWQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+<body>
+  
+
+  <a href="/" class="arrow-main"><-- На головну</a>
+
+    <div class="container product">
+        <div class="row">
+          <div class="select-country">
+      <select name="country" id="" class="select">
+        <option name="country"  value="ukraine">Ukraine</option>
+        <option name="country"  value="germany">Germany</option>
+        <option name="country"  value="europe">Europe</option>
+      </select>
+  </div>
+            <div class="col-8">
+               <!-- Slider main container -->
+<div class="swiper">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper">
+    <!-- Slides -->
+     <% for (let i = 0; i < data.images.length; i++) { %>
+        <img class="swiper-slide" src="<%= data.images[i] %>" alt="Image <%= i + 1 %>">
+    <% } %>
+  </div>
+  <!-- If we need pagination -->
+  <div class="swiper-pagination"></div>
+
+  <!-- If we need navigation buttons -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+
+</div>
+
+
+                
+            </div>
+            <div class="col-4">
+
+                <div class="info">
+
+                    <h2 class="title"><%= data.title %></h2>
+                    <h6 class="code"><%= data.code %></h6>
+                    <h4 class="price"><%= price %> <%= symbol %></h3>
+                    <p class="text"><%= data.text %></p>
+                    <h5 class="discount"><%= data.discount %></h4>
+                    <h6 class="stock"><%= data.stock %></h5>
+                    <h4 class="brand"><%= data.brand %></h3>
+                    <h5 class="category"><%= data.category %></h4>
+                    <button class="buy-btn">Купити</button>
+                </div>
+                <button class="arrow prev"><</button>
+                <button class="arrow next">></button>
+            </div>
+        </div>
+    </div> 
+
+
+
+
+    <div class="modal-wrapper">
+      <div class="my-modal">
+          <button class="modal-close">X</button>
+          <input type="text" class="modal-input" placeholder="ведіть номер телефону">
+          <button class="modal-btn"> Оформити замовлення</button>
+        </div>
+    </div>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script>
+
+let buyBtn = document.getElementsByClassName("buy-btn")[0];
+let modalWrapper = document.getElementsByClassName("modal-wrapper")[0];
+let modalClose = document.getElementsByClassName("modal-close")[0];
+buyBtn.addEventListener("click", function () {
+  modalWrapper.style.display = "flex";
+});
+modalClose.addEventListener('click', function(){
+  modalWrapper.style.display = 'none';
+})
+
+
+  let arrowNext = document.getElementsByClassName("next")[0];
+let arrowPrev = document.getElementsByClassName("prev")[0];
+
+
+arrowNext.addEventListener("click", function () {
+  let a = location.href.lastIndexOf("/");
+  location.href =
+    location.href.slice(0, a+1) + (Number(location.href.slice(a+1)) + 1);
+});
+
+arrowPrev.addEventListener("click", function () {
+  let a = location.href.lastIndexOf("/");
+  location.href =
+    location.href.slice(0, a+1) + (Number(location.href.slice(a+1)) - 1);
+});
+
+
+
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+let select = document.getElementsByClassName("select")[0];
+select.addEventListener("change", function (e) {
+   var val = select.options[select.selectedIndex].value;
+  console.log(val);
+  if (val == 'ukraine'){
+    let newUrl =  location.href.replace('/de/', '/ua/').replace('/eu/', '/ua/')
+    location.href = newUrl
+  }
+  if (val == 'germany'){
+    let newUrl =  location.href.replace('/ua/', '/de/').replace('/eu/', '/de/')
+    location.href = newUrl
+  }
+    if (val == 'europe'){
+    let newUrl =  location.href.replace('/ua/', '/eu/').replace('/de/', '/eu/')
+    location.href = newUrl
+  }
+  
+});
+
+if (location.href.includes('/de/')) {
+  document.querySelector('option[value="germany"]').selected = true;
+}
+if (location.href.includes('/ua/')) {
+  document.querySelector('option[value="ukraine"]').selected = true;
+}
+if (location.href.includes('/eu/')) {
+  document.querySelector('option[value="europe"]').selected = true;
+}
+
+const swiper = new Swiper(".swiper", {
+  // Optional parameters
+  loop: true,
+
+  // If we need pagination
+  pagination: {
+    el: ".swiper-pagination",
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+
+  // And if we need scrollbar
+
+});
+})
+
+</script>
+</body>
+</html>

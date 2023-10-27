@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap');
+body{
+    font-family: 'Montserrat';
+  background-color: rgb(241, 241, 241);
+}
+.swiper {
+  width: 600px;
+  height: 300px;
+}
+.product{
+    margin-top: 100px;
+    background-color: white;
+    padding: 50px 20px;
+    position: relative;
+    box-shadow: 0 0 3 0 rgba(0, 0, 0, 0.144);
+}
+.arrow{
+  border-radius: 100%;
+  background-color: rgb(241, 241, 241);
+  width: 40px;
+  height: 40px;
+  border: none;
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  transition: 0.2s;
+}
+.modal-close {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+
+}
+.my-modal {
+  position: relative;
+}
+
+.arrow:hover {
+ background-color: rgb(225, 225, 225);
+
+}
+.buy-btn{
+  background-color: aqua;
+  border-radius: 4px;
+  border: none;
+  padding: 7px 25px;
+  transition: 0.2s;
+}
+.buy-btn:hover{
+  background-color: rgb(54, 228, 228);
+}
+.prev{
+  right: 80px;
+}
+.info {
+}
+.title {
+  font-weight: 700;
+}
+.code {
+}
+.price {
+}
+.text {
+}
+.discount {
+}
+.stock {
+}
+.brand {
+}
+.category {
+}
+.select-country{
+    position: absolute;
+    right: -42px;
+    top: -40px;
+    width: 150px;
+}
+.modal-wrapper {
+  display: none;
+  background-color: rgba(3, 3, 3, 0.411);
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100vw;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+.my-modal {
+  display: flex;
+  background-color: white;
+  border-radius: 4px;
+  padding: 25px;
+  width: 400px;
+  height: 200px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.modal-btn {
+ height: 30px;
+ width: 100%;
+ border-radius: 3px;
+ border: none;
+ background-color: chocolate;
+}
+
+.modal-input{
+  height: 30px;
+  width: 100%;
+  border-color: rgb(135, 135, 240);
+  padding: 7px;
+}
+.modal-input:focus-visible{
+  border-color: rgb(135, 135, 240)!important; 
+}
+
+.modal-input::placeholder {
+  color: rgb(135, 135, 240);
+}

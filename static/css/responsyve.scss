@@ -1,0 +1,26 @@
+@media screen and (max-width: 800px) {
+    nav {
+        flex-direction: column;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        text-align: center;
+        display: none;
+    }
+    .active {
+        display: flex;
+    }
+    nav a {
+        min-width: 80%;
+    }
+    .nav__mobile {
+        display: flex;
+        justify-content: space-around;
+        background-color: #5b8af3;
+        box-shadow: 0 4px 4px lightgray;
+    }
+    .nav__mobile img{
+        max-width: 50px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}

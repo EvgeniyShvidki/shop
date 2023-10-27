@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap-grid.min.css" integrity="sha512-EAgFb1TGFSRh1CCsDotrqJMqB2D+FLCOXAJTE16Ajphi73gQmfJS/LNl6AsjDqDht6Ls7Qr1KWsrJxyttEkxIA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsyve.css">
+    <title>Shop</title>
+</head>
+<body>
+    <div class="nav__mobile">
+        <img src="/img/basket.svg" alt="">
+        <img src="/img/menu.svg" id="toggle-mobile-menu" alt="">
+    </div>
+<nav>
+    <a href="main.html">Головна</a>
+    <a href="about.html">Про магазин</a>
+    <a href="discount.html">Акції та знижки</a>
+    <a href="contacts.html">Контакти</a>
+    <a href="reviews.html">Відгуки</a>
+</nav>
+    <div class="container top">
+        <div class="row">
+            <div class="col-12">
+                <div class="basket">
+                    <img src="/img/basket.svg" alt="">
+                    <h4 class="sum">0</h4>
+                </div>
+
+                <div class="basket-details">
+                    <div class="basket-details-products super45">
+
+                    </div>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-3"></div>
+            <div class="col-12 col-md-9">
+
+                <div class="products">
+
+                   
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+<!-- Modal windows -->
+<div class="modal-wrapper">
+    <div class="modal">
+        <div class="end">
+            <button class="close">X</button>
+        </div>
+        <div class="modal-body" id="modal-body">
+            <h2 class="title"></h2>
+            <form id="myForm">
+                <!-- inp.form-input[placeholder="input your "]*6 -->
+                <input type="text" required name="" id="" class="form-input" placeholder="input your name">
+                <input type="text" name="" id="" class="form-input" placeholder="input your lastname">
+                <input type="text" name="" id="" class="form-input" placeholder="input your phone number">
+                <input type="text" name="" id="" class="form-input" placeholder="input your address">
+                <input type="text" name="" id="" class="form-input" placeholder="input your post numder">
+                <!-- <input type="text" name="" id="" class="form-input" placeholder="input your products"> -->
+                <input type="text" name="" id="" class="form-input" placeholder="input your type pay">
+                <input type="text" name="" id="" class="form-input" placeholder="input your email">
+                <!-- <input type="text" name="" id="" class="form-input" placeholder="input your post numder"> -->
+                <button type="submit" class="confirm-order">Підтвердити замовлення</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+
+    .alert {
+  background-color: #f44336;
+  color: white;
+  padding: 10px;
+  display: none;
+  margin-top: 10px;
+}
+.modal-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.514);
+    display: none;
+    z-index: 1000;
+}
+.modal {
+    background-color: white;
+    border-radius: 5px;
+    padding: 25px;
+    width: 40%;
+    height: 50vh;
+}
+.close {
+}
+.title {
+}
+.form-input {
+}
+.confirm-order {
+}
+</style>
+
+
+
+    <script src="/js/data.js"></script>
+    <script src="/js/mobile.js"></script>
+    <script src="/js/script.js"></script>
+
+    <script>
+
+document.getElementById("myForm").addEventListener("submit", function(event) {
+  var nameInput = document.getElementById("name");
+  var emailInput = document.getElementById("email");
+
+  if (!nameInput.checkValidity()) {
+    displayAlert("Please enter your name.");
+    event.preventDefault();
+  } else if (!emailInput.checkValidity()) {
+    displayAlert("Please enter a valid email address.");
+    event.preventDefault();
+  } else {
+    // Form submission logic goes here...
+    // For example, you can submit the form using AJAX or simply let it submit normally.
+    // event.preventDefault(); // Uncomment this line if you want to prevent the default form submission behavior.
+  }
+});
+
+function displayAlert(message) {
+  var alertElement = document.createElement("div");
+  alertElement.classList.add("alert");
+  alertElement.textContent = message;
+
+  var form = document.getElementById("myForm");
+  form.appendChild(alertElement);
+
+  setTimeout(function() {
+    alertElement.style.display = "none";
+  }, 3000); // Hide the alert after 3 seconds (3000 milliseconds).
+}
+
+
+    </script>
+</body>
+</html>
